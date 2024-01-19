@@ -133,7 +133,7 @@ const fetchannouncement = async (e) => {
       
   
     
-    console.log("datannounce",);
+    // console.log("datannounce",);
     // Further logic with the data
     setData(announce);
 

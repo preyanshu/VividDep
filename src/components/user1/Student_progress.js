@@ -4,13 +4,15 @@ import { Link, useLocation,useNavigate} from "react-router-dom";
 import Sidebar_2 from "./Sidebar_2";
 import Graph from './Graph';
 import "./Student_progress.css"
+import { useContext } from 'react';
+import Flagcontext from '../context/notes/Flagcontext';
 
 
 const Student_progress= (props) => {
     const location=useLocation();
     const navigate=useNavigate();
     const[flag3,setflag3]=useState(false);
-    const[flag2,setflag2]=useState(true);
+     const {flag2,setflag2}=useContext(Flagcontext);
     const desiredWidth = !flag2 ? '5vw' : '16vw';
     const desiredWidth2 = !flag2 ? '87vw' : '80vw';
     const desiredWidth3 = !flag2 ? '94vw' : '82vw';
@@ -76,7 +78,7 @@ const data=[
     const[filter,setfilter]=useState(false);
     const fetchData = async () => {
       try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGFlNmYwM2Q3YjFiZGUxNjBjMjZjYiIsImlhdCI6MTcwMzYwMTkwNH0.SqYCVA4THqQrY_afsPQvGIFruFB5T_JDa2_jBU3C2N0';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI';
     
         const requestOptions = {
           method: 'POST',

@@ -3,12 +3,14 @@ import { useRef ,useEffect} from 'react';
 import { Link, useLocation,useNavigate} from "react-router-dom";
 import Sidebar_2 from "./Sidebar_2";
 
+import { useContext } from 'react';
+import Flagcontext from '../context/notes/Flagcontext';
 const Student_attendence = (props) => {
     
     const location=useLocation();
     const navigate=useNavigate();
     const[flag,setflag]=useState(false);
-    const[flag2,setflag2]=useState(true);
+     const {flag2,setflag2}=useContext(Flagcontext);
     const[studentdetails,setstudentdetails]=useState([]);
     const[assignments,setAssignments]=useState([]);
     const[announcements,setAnnouncements]=useState([]);
@@ -173,7 +175,7 @@ const studentsdata=[
 
       const addClass = async () => {
         try {
-          const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGMyOTdiYjkzODJlODliMWRmNjMzMSIsImlhdCI6MTcwMzY4NDQ3NX0.dl0twhVbYGtgLVUWtZjL1K6LgTnTqxWYXklpx50mbE8';
+          const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI';
       
           const requestBody = {
             name: 'rkvats',
@@ -190,7 +192,7 @@ const studentsdata=[
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGMyOTdiYjkzODJlODliMWRmNjMzMSIsImlhdCI6MTcwMzY4NDQ3NX0.dl0twhVbYGtgLVUWtZjL1K6LgTnTqxWYXklpx50mbE8`
+              'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI`
             },
             body: JSON.stringify(requestBody)
           };
@@ -309,7 +311,7 @@ const studentsdata=[
 
     const fetchData = async () => {
       try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGMyOTdiYjkzODJlODliMWRmNjMzMSIsImlhdCI6MTcwMzY4NDQ3NX0.dl0twhVbYGtgLVUWtZjL1K6LgTnTqxWYXklpx50mbE8';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI';
     
         const requestOptions = {
           method: 'GET',
@@ -345,7 +347,7 @@ const studentsdata=[
     
     const fetchstu = async () => {
       try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGFlNmYwM2Q3YjFiZGUxNjBjMjZjYiIsImlhdCI6MTcwMzYwMTkwNH0.SqYCVA4THqQrY_afsPQvGIFruFB5T_JDa2_jBU3C2N0';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI';
     
         const requestOptions = {
           method: 'POST',
@@ -384,7 +386,7 @@ const studentsdata=[
       console.log("e",e);
       console.log("fetchingassignment")
       try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGMyOTdiYjkzODJlODliMWRmNjMzMSIsImlhdCI6MTcwMzY4NDQ3NX0.dl0twhVbYGtgLVUWtZjL1K6LgTnTqxWYXklpx50mbE8';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI';
     
         const requestOptions = {
           method: 'GET',
@@ -422,7 +424,7 @@ const studentsdata=[
     };
     const fetchannouncement = async (e) => {
       try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGFlNmYwM2Q3YjFiZGUxNjBjMjZjYiIsImlhdCI6MTcwMzYwMTkwNH0.SqYCVA4THqQrY_afsPQvGIFruFB5T_JDa2_jBU3C2N0';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI';
     
         const requestOptions = {
           method: 'GET',
@@ -472,7 +474,7 @@ studentdetails.forEach(student => {
 const addassignment = async () => {
   console.log("current",{classId:current._id,title:modal1.title,dueDate:modal1.dueDate,description:modal1.description});
   try {
-    const token =  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGMyOTdiYjkzODJlODliMWRmNjMzMSIsImlhdCI6MTcwMzY4NDQ3NX0.dl0twhVbYGtgLVUWtZjL1K6LgTnTqxWYXklpx50mbE8`  
+    const token =  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI`  
     
 
     const requestOptions = {
@@ -513,7 +515,7 @@ const addassignment = async () => {
 const addannouncement = async () => {
   console.log("current",{classId:current._id,title:modal2.title,description:modal2.description});
   try {
-    const token =  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGMyOTdiYjkzODJlODliMWRmNjMzMSIsImlhdCI6MTcwMzY4NDQ3NX0.dl0twhVbYGtgLVUWtZjL1K6LgTnTqxWYXklpx50mbE8`  
+    const token =  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI`  
     
 
     const requestOptions = {
@@ -645,7 +647,7 @@ function getTimeDifference(messageTime) {
     
 
     <div className="notifications"style={{width:desiredWidth3,transition:"0.3s"}}>
-   <div className="text-left pt-3 pl-5  pe-5" style={{paddingLeft:54+"px",paddingBottom:-10+"px",display:"flex",justifyContent:"space-between",border:"0px solid black",width:78+"vw",position:"absolute",top:10+"px",zIndex:1000000}}><div>{location.pathname}<br></br><h5>Dashboard</h5></div><div className='sidetextbar'><span className="mx-3">Tab1</span><span className="mx-3">Tab2</span><span className="mx-3 me-5">Tab3</span><i style={{marginRight:20+"px"}} class="fa-solid fa-bell fa-sm "></i><i style={{marginRight:20+"px"}} class="fa-solid fa-bullhorn fa-sm "></i><i
+   <div className="text-left pt-3 pl-5  pe-5" style={{paddingLeft:54+"px",paddingBottom:-10+"px",display:"flex",justifyContent:"space-between",border:"0px solid black",width:78+"vw",position:"absolute",top:10+"px",zIndex:1000000}}><div>{location.pathname}<br></br><h5>Dashboard</h5></div><div className='sidetextbar'><i style={{marginRight:20+"px"}} class="fa-solid fa-bell fa-sm "></i><i style={{marginRight:20+"px"}} class="fa-solid fa-bullhorn fa-sm "></i><i
 style={{marginRight:8+"px"}} class="fa-solid fa-gear fa-sm "></i><i  style={{marginRight:11+"px"}}class="fa-solid fa-user fa-sm "></i><span 
 onClick={()=>{
   
@@ -709,7 +711,7 @@ onClick={()=>{
                 <hr />
                 
             </div>
-            < p className="card-text"><b><i class="fa-solid fa-user me-2"></i>Teacher : </b> <span style={{color:"#666464"}}>RKvats</span> <br />
+            < p className="card-text"><b><i class="fa-solid fa-user me-2"></i>Teacher : </b> <span style={{color:"#666464"}}>YOU</span> <br />
              <b><div class="fa-solid fa-user me-2" style={{color:"#F2F2F2"}}></div>Semester :</b> <span style={{color:"#666464"}}>{e.semester}</span> <br />
              <b><div class="fa-solid fa-user me-2" style={{color:"#F2F2F2"}}></div>section :</b> <span style={{color:"#666464"}}>{e.section}</span> </p>
 

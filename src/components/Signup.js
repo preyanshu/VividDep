@@ -8,6 +8,7 @@ const Signup = (props) => {
     const [credentials, setCredentials] = useState({name:"",email: "", password: "",cpassword:"",type:"",rollno:"",semester:"",section:"",branch:""}) 
     const[type,setType]=useState("1");
     const [loading, setLoading] = useState(false) 
+  
     
     let navigate = useNavigate();
 
@@ -16,7 +17,9 @@ const Signup = (props) => {
       // alert
       let url = '';
 
-if (type === "2") {
+      
+
+if (type === "2"||type==="3") {
   url = 'http://localhost:5000/auth/registerTeacher';
 } else if (type === "1") {
   url = 'http://localhost:5000/auth/registerStudent';
@@ -28,6 +31,7 @@ if (type === "2") {
           }
       
           try {
+          
             const response = await fetch(url, {
               method: "POST",
               headers: {
@@ -50,14 +54,27 @@ if (type === "2") {
             console.log(json);
             setLoading(false);
       
-            if (json.token) {
+            if (!json.error) {
       
                alert("Registration Successful")
       
-              //  localStorage.setItem("token", JSON.stringify(json));
-               navigate("/user1");
-            } else {
-              alert("Invalid Credentials");
+               localStorage.setItem("token2", JSON.stringify(json.token));
+               localStorage.setItem("token", JSON.stringify(json.signupdata));
+               if(type==="1"){
+                navigate("/user1");
+               }
+               else if(type==="2"){
+                navigate("/user2");
+               }
+               else if(type==="3"){
+                navigate("/user3");
+               }
+            } else if(json.error){
+              alert(json.error);
+              
+            }
+            else{
+              alert("something went wrong")
             }
           } catch (error) {
             console.log(error);
@@ -72,6 +89,8 @@ if (type === "2") {
         setType( selectedValue );
 
     }
+
+   
 
 
   return (

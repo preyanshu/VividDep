@@ -5,10 +5,12 @@ import { Link, useLocation,useNavigate} from "react-router-dom";
 
 import "./notifications.css"
 import Sidebar_2 from "./Sidebar_2";
+import { useContext } from 'react';
+import Flagcontext from '../context/notes/Flagcontext';
 
 const Notifications = (props) => {
   const[flag,setflag]=useState(false);
-  const[flag2,setflag2]=useState(true);
+   const {flag2,setflag2}=useContext(Flagcontext);
   const[assignments,setAssignments]=useState([]);
   const[modal,setModal]=useState({title:"",content:"",dueDate:""});
   let teacher=false;
@@ -100,7 +102,7 @@ elements.forEach(function(element) {
       console.log("e",e);
       console.log("fetchingassignment")
       try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGMyOTdiYjkzODJlODliMWRmNjMzMSIsImlhdCI6MTcwMzY4NDQ3NX0.dl0twhVbYGtgLVUWtZjL1K6LgTnTqxWYXklpx50mbE8';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI';
     
         const requestOptions = {
           method: 'GET',
@@ -204,7 +206,7 @@ elements.forEach(function(element) {
     
 
     <div className="notifications" style={{width:desiredWidth3}}>
-   <div className="text-left pt-3 pl-5  pe-5 " style={{paddingLeft:54+"px",paddingBottom:-10+"px",display:"flex",justifyContent:"space-between",border:"0px solid black",width:78+"vw",position:"absolute",top:10+"px",zIndex:1000000}}><div>{location.pathname}<br></br><h5>Dashboard</h5></div><div className='sidetextbar'><span className="mx-3">Tab1</span><span className="mx-3">Tab2</span><span className="mx-3 me-5">Tab3</span><i style={{marginRight:20+"px"}} class="fa-solid fa-bell fa-sm "></i><i style={{marginRight:20+"px"}} class="fa-solid fa-bullhorn fa-sm "></i><i
+   <div className="text-left pt-3 pl-5  pe-5 " style={{paddingLeft:54+"px",paddingBottom:-10+"px",display:"flex",justifyContent:"space-between",border:"0px solid black",width:78+"vw",position:"absolute",top:10+"px",zIndex:1000000}}><div>{location.pathname}<br></br><h5>Dashboard</h5></div><div className='sidetextbar'><i style={{marginRight:20+"px"}} class="fa-solid fa-bell fa-sm "></i><i style={{marginRight:20+"px"}} class="fa-solid fa-bullhorn fa-sm "></i><i
 style={{marginRight:8+"px"}} class="fa-solid fa-gear fa-sm "></i><i  style={{marginRight:11+"px"}}class="fa-solid fa-user fa-sm "></i><span 
 onClick={()=>{
   

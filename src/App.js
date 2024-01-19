@@ -30,6 +30,7 @@ import Feedback from "./components/user1/Feedback";
 import Student_attendence from "./components/user1/Student_attendence";
 import Student_progress from "./components/user1/Student_progress";
 import Underprocess from "./components/user1/Underprocess";
+import FlagState from "./components/context/notes/Flagstate";
 
 
 function App() {
@@ -56,6 +57,8 @@ function App() {
 
 
   return (<>
+  <FlagState>
+
   <ChatProvider>
   <Router>
     {/* <div className="App" style={{ width: 70 + "vw", overflowX: "scroll" }}>
@@ -108,6 +111,7 @@ function App() {
     <Route exact path="/user3/feedback" element={<Feedback showAlert={showAlert}></Feedback>} />
     <Route exact path="/user1/airesume" element={<Underprocess showAlert={showAlert}></Underprocess>} />
     <Route exact path="/user1/activities" element={<Underprocess showAlert={showAlert}></Underprocess>} />
+    <Route exact path="/user2/activities" element={<Underprocess showAlert={showAlert}></Underprocess>} />
     <Route exact path="/user1/codeiann" element={<Underprocess showAlert={showAlert}></Underprocess>} />
     <Route exact path="/user1/results" element={<Underprocess showAlert={showAlert}></Underprocess>} />
     <Route exact path="/user1/reports" element={<Underprocess showAlert={showAlert}></Underprocess>} />
@@ -119,6 +123,7 @@ function App() {
     
 </Router>
 </ChatProvider>
+</FlagState>
     </> );
 }
 

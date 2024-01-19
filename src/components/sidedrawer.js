@@ -27,7 +27,7 @@ export const Sidedrawer = () => {
         },
       };
 
-      const response = await axios.get('http://localhost:5000/api/chat/allchats', config);
+      const response = await axios.get('http://localhost:5003/api/chat/allchats', config);
       const { data } = response;
 
       setChats(data);
@@ -88,7 +88,7 @@ export const Sidedrawer = () => {
               },
             };
 
-            const response = await axios.get(`http://localhost:5000/api/user/allusers?search=${search}`, config);
+            const response = await axios.get(`http://localhost:5003/api/user/allusers?search=${search}`, config);
               
             setLoading(false);
             setSearchResult(response.data);
@@ -117,7 +117,7 @@ export const Sidedrawer = () => {
           },
         };
   
-        const {data} = await axios.post("http://localhost:5000/api/chat", { userId }, config);
+        const {data} = await axios.post("http://localhost:5003/api/chat", { userId }, config);
          setSelectedChat(data[0]);
          console.log("chat ghhh jjjjjjjjj bbbbbbbbbn555data");
          console.log(data);

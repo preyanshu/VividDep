@@ -7,6 +7,8 @@ import { Link, useLocation } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 import Sidebar_2 from "../user1/Sidebar_2";
 import styles from "./dashb.module.css"
+import { useContext } from 'react';
+import Flagcontext from '../context/notes/Flagcontext';
 
 const Dashboard = (props) => {
     const data=[
@@ -31,7 +33,8 @@ const Dashboard = (props) => {
     ]
         const[details,setdetails]=useState(data);
         const[flag,setflag]=useState(false);
-        const[flag2,setflag2]=useState(true);
+        // const[flag2,setflag2]=useState(true);
+        const {flag2,setflag2}=useContext(Flagcontext);
     
   useEffect(()=>{
     if(window.innerWidth<1200){

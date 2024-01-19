@@ -7,7 +7,7 @@ import {getSender }from "./chatlogics"
 
 
 
-const ENDPOINT = "http://localhost:5000"
+const ENDPOINT = "http://localhost:5003"
  let socket, selectedChatCompare;
 
 export const Chatbox = () => {
@@ -37,7 +37,7 @@ export const Chatbox = () => {
       };
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/message/${selectedChat._id}`,
+        `http://localhost:5003/api/message/${selectedChat._id}`,
         config
       );
 
@@ -57,7 +57,7 @@ export const Chatbox = () => {
         },
       };
 
-      const response = await axios.get('http://localhost:5000/api/chat/allchats', config);
+      const response = await axios.get('http://localhost:5003/api/chat/allchats', config);
       const { data } = response;
 
       setChats(data);
@@ -129,7 +129,7 @@ export const Chatbox = () => {
         
   //       setNewMessage("");
   //       const { data } = await axios.post(
-  //         "http://localhost:5000/api/message",
+  //         "http://localhost:5003/api/message",
   //         {
   //           content: newmessage,
   //           chatId: selectedChat._id,
@@ -173,7 +173,7 @@ export const Chatbox = () => {
         
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:5000/api/message",
+          "http://localhost:5003/api/message",
           {
             content: newmessage,
             chatId: selectedChat._id,

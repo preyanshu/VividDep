@@ -1,12 +1,16 @@
 import React from 'react'
-import { useRef ,useEffect,useState} from 'react';
+import { useRef ,useEffect,useState,useContext} from 'react';
 import { Link, useLocation,useNavigate} from "react-router-dom";
 import Sidebar_2 from "./Sidebar_2";
+
+import Flagcontext from '../context/notes/Flagcontext';
 
 const Announcement = (props) => {
   let teacher=false;
   const[flag,setflag]=useState(false);
-  const[flag2,setflag2]=useState(true);
+   const {flag2,setflag2}=useContext(Flagcontext);
+ 
+
   const [data,setData]=useState([]);
   const [modal,setModal]=useState({title:"",content:""});
   
@@ -104,7 +108,7 @@ function getTimeDifference(messageTime) {
 }
 const fetchannouncement = async (e) => {
   try {
-    const token = (teacher) ? `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGFlNmYwM2Q3YjFiZGUxNjBjMjZjYiIsImlhdCI6MTcwMzYwMTkwNH0.SqYCVA4THqQrY_afsPQvGIFruFB5T_JDa2_jBU3C2N0` : `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGQ4M2Q4Y2M0NGFiNmZhMWUxMGQ3OCIsImlhdCI6MTcwNDI5MTYxOH0.xowxZRbX210LM5qbij63t_xL3KiQsGd-LWmtc7cZCuI`;  
+    const token = (teacher) ? `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE2YzdiMWIwZGRmM2RjNDBkOGUyMSIsImlhdCI6MTcwNTY2NzcwN30.Jnr1FRFl3n4MFAkE0cioQen_Zq1wHSwnO_IZP4KI5gI` : `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWE3MGFhODZmNjYyYTRhNzdiMGZiNSIsImlhdCI6MTcwNTY2ODc3OH0.GMJC7OCIWB2QQ8Oiy9VWX5h8Wr9jl5rWoIPqOpC5nFQ`;  
     
 
     const requestOptions = {
@@ -200,7 +204,7 @@ const fetchannouncement = async (e) => {
     
 
     <div className="notifications" style={{width:desiredWidth3,transition:"0.3s"}}>
-    <div className="text-left pt-3 pl-5  pe-5" style={{paddingLeft:54+"px",paddingBottom:-10+"px",display:"flex",justifyContent:"space-between",border:"0px solid black",width:78+"vw",position:"absolute",top:10+"px",zIndex:1000000}}><div>{location.pathname}<br></br><h5>Dashboard</h5></div><div><span className="mx-3">Tab1</span><span className="mx-3">Tab2</span><span className="mx-3 me-5">Tab3</span><i style={{marginRight:20+"px"}} class="fa-solid fa-bell fa-sm "></i><i style={{marginRight:20+"px"}} class="fa-solid fa-bullhorn fa-sm "></i><i
+    <div className="text-left pt-3 pl-5  pe-5" style={{paddingLeft:54+"px",paddingBottom:-10+"px",display:"flex",justifyContent:"space-between",border:"0px solid black",width:78+"vw",position:"absolute",top:10+"px",zIndex:1000000}}><div>{location.pathname}<br></br><h5>Dashboard</h5></div><div><i style={{marginRight:20+"px"}} class="fa-solid fa-bell fa-sm "></i><i style={{marginRight:20+"px"}} class="fa-solid fa-bullhorn fa-sm "></i><i
 style={{marginRight:8+"px"}} class="fa-solid fa-gear fa-sm "></i><i  style={{marginRight:11+"px"}}class="fa-solid fa-user fa-sm "></i><span 
 onClick={()=>{
   
